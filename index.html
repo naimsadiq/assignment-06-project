@@ -151,6 +151,27 @@
                 <button class="bg-[#FACC15] text-[#15803D] h-[40px] w-full rounded-3xl font-medium cursor-pointer hover:bg-[#FACC1595] hover:text-[#1F2937]">Donate Now</button>
             </form>
            </section>
+
+
+           <!-- Open the modal using ID.showModal() method -->
+            <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+            <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="modal-cart" class="space-y-4">
+                    <h3 class="text-xl font-semibold">Mango Tree</h3>
+                    <img class="w-full h-[220px] object-cover rounded-md" src="./assets/Rectangle 1.png" alt="">
+                    <span class=" block"><b>Category: </b>Fruit Tree</span>
+                    <span class="block"><b>Price: </b>৳500</span>
+                    <p class=""><b>Description: </b>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
+                </div>
+                <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+                </div>
+            </div>
+            </dialog>
       </main>
       <footer class="bg-[#14532D] py-6 text-center text-[#FFFFFF]">© 2025 Green Earth. All Rights Reserved.</footer>
     <script src="./javaScript/app.js"></script>
