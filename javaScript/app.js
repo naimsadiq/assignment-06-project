@@ -12,7 +12,6 @@ cartConteinar.addEventListener('click', (evt) => {
 })
 
 const manageSpinner = (status) => {
-    console.log(status);
   if (status == true) {
     document.getElementById("spinner").classList.remove("hidden");
     document.getElementById("cart-show-conteinar").classList.add("hidden");
@@ -120,7 +119,7 @@ const categoriesShow = (categories) => {
     const categoryContainer = document.getElementById('categories-conteinar');
     categories.forEach(category => {
         categoryContainer.innerHTML +=`
-            <li id="${category.id}" class="md:w-full w-[150px] bg-indigo-500 shadow-lg shadow-indigo-500/50 text-[#FFFFFF] md:bg-transparent sm:shadow-none flex justify-center items-center md:flex-none md:justify-start categories-btn font-medium md:text-black md:hover:text-[#FFFFFF] hover:bg-[#15803D] p-2 mb-1 rounded-lg cursor-pointer">${category.category_name}</li>
+            <li id="${category.id}" class="md:w-full w-[150px]  shadow-lg shadow-indigo-500/20  sm:shadow-none flex justify-center items-center md:flex-none md:justify-start categories-btn font-medium md:text-base text-sm text-black md:hover:text-[#FFFFFF] hover:bg-[#15803D] p-2 mb-1 rounded-lg cursor-pointer">${category.category_name}</li>
         `
     })
     
