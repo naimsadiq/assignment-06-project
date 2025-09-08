@@ -1,25 +1,60 @@
 
 const cartConteinar = document.getElementById('cart-conteiner');
+let price = 0;
 
 cartConteinar.addEventListener('click', (evt) => {
     if(evt.target.localName === 'h3'){
-        // console.log(evt.target.id)
         showModal(evt.target.id)
     }
     if(evt.target.localName === 'button'){
-        console.log(evt.target)
+        addCart(evt.target.id)
+    }
+})
+
+const addCartList = document.getElementById('add-cart-list');
+addCartList.addEventListener('click', (evt) => {
+    if(evt.target.localName === 'i'){
+        const cartList = evt.target.parentNode.parentNode;
+        let cartIteamPrice = parseInt(evt.target.parentNode.parentNode.childNodes[1].childNodes[3].childNodes[1].innerText);
+        price -= cartIteamPrice;
+        document.getElementById('total-price').innerText = price;
+        cartList.remove();
     }
 })
 
 
+const addCart = (id) => {
+    const addCartUrl = `https://openapi.programming-hero.com/api/plant/${id}`;
+    fetch(addCartUrl)
+    .then(response => response.json())
+    .then(data => {
+        const plants = data.plants;
+        const addCartList = document.getElementById('add-cart-list');
+        addCartList.innerHTML += `
+            <div class="cart-list bg-[#F0FDF4] py-2 px-3 flex justify-between items-center rounded-lg my-2 space-y-2">
+                <div>
+                    <h4 class="text-sm text-[#1F2937] font-semibold mb-1">${plants.name}</h4>
+                    <div class="text-[#1F2937]">৳<span id="available-price">${plants.price}</span></div>
+                </div>
+                <div class="delete-icon">
+                    <i class="fa-solid fa-xmark text-red-500 cursor-pointer"></i>
+                </div>
+            </div>
+        `
+    alert(`${plants.name} has been added to the cart. `);
+    const totalPrice = document.getElementById('total-price');
+    price += plants.price;
+    totalPrice.innerText = price;
+})
+}
+
+
 const showModal = (id) => {
     document.getElementById('my_modal_5').showModal();
-    // console.log(id);
 const plantsDetailUrl = `https://openapi.programming-hero.com/api/plant/${id}`;
     fetch(plantsDetailUrl)
     .then(response => response.json())
     .then(data => {
-        console.log(data.plants);
         const plants = data.plants;
         const modalCart = document.getElementById('modal-cart');
         modalCart.innerHTML = `
@@ -41,9 +76,7 @@ fetch(allPlantsUrl)
 })
 
 const allPlantsShow = (allPlants) => {
-    // const cartConteinar = getID('cart-conteiner')
     allPlants.forEach(plant => {
-        // console.log(plant.id)
         cartConteinar.innerHTML += `
             <div class="cart bg-[#FFFFFF] rounded-lg p-4 space-y-3">
                     <img class="w-full h-40 object-cover rounded-md" src="${plant.image}" alt="">
@@ -55,7 +88,7 @@ const allPlantsShow = (allPlants) => {
                             <span class="text-sm text-[#1F2937] font-semibold">৳${plant.price}</span>
                         </div>
                     </div>
-                    <button class="bg-[#15803D] text-[#FFFFFF] font-medium w-full h-[44px] rounded-3xl cursor-pointer hover:bg-[#0f5529]">Add to Cart</button>
+                    <button id="${plant.id}" class="bg-[#15803D] text-[#FFFFFF] font-medium w-full h-[44px] rounded-3xl cursor-pointer hover:bg-[#0f5529]">Add to Cart</button>
             </div>
         `
     })
@@ -82,7 +115,6 @@ const categoriesShow = (categories) => {
     categoryContainer.addEventListener('click', (evt) => {
         const categoryList = document.querySelectorAll('.categories-btn');
         categoryList.forEach(list => {
-            // console.log(list.id)
             list.classList.remove('bg-[#15803D]', 'text-[#FFFFFF]');
         })
         if(evt.target.localName === 'li'){
@@ -95,11 +127,9 @@ const categoriesShow = (categories) => {
 
 const categoryCart = (id) => {
     const categoryCartUrl = `https://openapi.programming-hero.com/api/category/${id}`;
-    // console.log(categoryCartUrl);
     fetch(categoryCartUrl)
     .then(response => response.json())
     .then(data => {
-        // console.log(data.plants);
         showCategoryCart(data.plants)
     })
 }
@@ -118,9 +148,8 @@ const showCategoryCart = (plants) => {
                             <span class="text-sm text-[#1F2937] font-semibold">৳${plant.price}</span>
                         </div>
                     </div>
-                    <button class="bg-[#15803D] text-[#FFFFFF] font-medium w-full h-[44px] rounded-3xl cursor-pointer hover:bg-[#0f5529]">Add to Cart</button>
+                    <button id="${plant.id}" class="bg-[#15803D] text-[#FFFFFF] font-medium w-full h-[44px] rounded-3xl cursor-pointer hover:bg-[#0f5529]">Add to Cart</button>
             </div>
         `
     })
 }
-

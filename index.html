@@ -73,27 +73,21 @@
                 </div>
                 <div class="cart-list-conteinar col-span-2 bg-[#FFFFFF] p-4">
                     <span class="text-xl text-[#000000] font-semibold block mb-3">Your Cart</span>
-                    <div class="cart-list bg-[#F0FDF4] py-2 px-3 flex justify-between items-center rounded-lg my-2 space-y-2">
-                        <div>
-                            <h4 class="text-sm text-[#1F2937] font-semibold mb-1">Mango Tree</h4>
-                            <span class="text-[#1F2937]">৳500 x 1</span>
-                        </div>
-                        <div class="delete-icon">
-                            <i class="fa-solid fa-xmark text-[#8C8C8C] cursor-pointer"></i>
-                        </div>
+                    <div id="add-cart-list">
+                        <!-- <div class="cart-list bg-[#F0FDF4] py-2 px-3 flex justify-between items-center rounded-lg my-2 space-y-2">
+                            <div>
+                                <h4 class="text-sm text-[#1F2937] font-semibold mb-1">Mango Tree</h4>
+                                <span class="text-[#1F2937]">৳500 x 1</span>
+                            </div>
+                            <div class="delete-icon">
+                            <i class="fa-solid fa-xmark text-red-500 cursor-pointer"></i>
+                            </div>
+                        </div> -->
                     </div>
-                    <div class="cart-list bg-[#F0FDF4] py-2 px-3 flex justify-between items-center rounded-lg my-2 space-y-2">
-                        <div>
-                            <h4 class="text-sm text-[#1F2937] font-semibold mb-1">Mango Tree</h4>
-                            <span class="text-[#1F2937]">৳500 x 1</span>
-                        </div>
-                        <div class="delete-icon">
-                            <i class="fa-solid fa-xmark text-[#8C8C8C] cursor-pointer"></i>
-                        </div>
-                    </div>
-                    <div class="total-price flex justify-between items-center border-t-2 border-[#8C8C8C] py-2">
+                    
+                    <div class="flex justify-between items-center border-t-2 border-[#8C8C8C] py-2">
                         <span class="font-medium text-[#1F2937]">Total:</span>
-                        <span class="font-medium text-[#1F2937]">৳1000</span>
+                        <span class="font-medium text-[#1F2937]">৳<span id="total-price">0</span></span>
                     </div>
                 </div>
             </div>
@@ -158,11 +152,11 @@
             <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
             <div class="modal-box">
                 <div id="modal-cart" class="space-y-4">
-                    <h3 class="text-xl font-semibold">Mango Tree</h3>
+                    <!-- <h3 class="text-xl font-semibold">Mango Tree</h3>
                     <img class="w-full h-[220px] object-cover rounded-md" src="./assets/Rectangle 1.png" alt="">
                     <span class=" block"><b>Category: </b>Fruit Tree</span>
                     <span class="block"><b>Price: </b>৳500</span>
-                    <p class=""><b>Description: </b>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
+                    <p class=""><b>Description: </b>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p> -->
                 </div>
                 <div class="modal-action">
                 <form method="dialog">
