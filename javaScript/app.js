@@ -11,6 +11,19 @@ cartConteinar.addEventListener('click', (evt) => {
     }
 })
 
+const manageSpinner = (status) => {
+    console.log(status);
+  if (status == true) {
+    document.getElementById("spinner").classList.remove("hidden");
+    document.getElementById("cart-show-conteinar").classList.add("hidden");
+  } else {
+    document.getElementById("cart-show-conteinar").classList.remove("hidden");
+    document.getElementById("spinner").classList.add("hidden");
+  }
+};
+
+
+
 const addCartList = document.getElementById('add-cart-list');
 addCartList.addEventListener('click', (evt) => {
     if(evt.target.localName === 'i'){
@@ -66,7 +79,7 @@ const plantsDetailUrl = `https://openapi.programming-hero.com/api/plant/${id}`;
         `
 })
 }
-
+manageSpinner(true);
 // All Plants Conteinar function 
 const allPlantsUrl = 'https://openapi.programming-hero.com/api/plants';
 fetch(allPlantsUrl)
@@ -92,10 +105,9 @@ const allPlantsShow = (allPlants) => {
             </div>
         `
     })
+    manageSpinner(false);
 }
-
 // All categories function 
-
 const categoriesUrl = 'https://openapi.programming-hero.com/api/categories';
 fetch(categoriesUrl)
 .then(response => response.json())
