@@ -1,167 +1,44 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-006
+# 📘 Assignment - 006
 
-### 📅 Deadline For 60 marks: 9th September, 2025 (11:59 pm ⏱️)
-
-### 📅 Deadline For 50 marks : 13th September , 2025 (6:00 pm⏱️)
-
-### 📅 Deadline For 30 marks: Any time after 13the September , 2025 (6:01 pm⏱️).
+## 7. নিম্নলিখিত প্রশ্নগুলির উত্তর দেওয়া হয়েছে
 
 ---
-# Green Earth
 
+### ❓ 1) What is the difference between var, let, and const?
 
-## Private Repository: https://classroom.github.com/a/nVZrg5R9 
-
-## Alternative Private Repository: https://classroom.github.com/a/KCGI14ST 
-
-
----
-🌴 API Endpoints
----
-1. Get 🌴All Plants
-```bash
-https://openapi.programming-hero.com/api/plants
-```
-
-2. Get 🌴All categories <br/>
-```bash
-https://openapi.programming-hero.com/api/categories
-```
-
-
-3. Get 🌴plants by categories <br/>
-```bash
-https://openapi.programming-hero.com/api/category/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/category/1
-```
-
-4. Get 🌴Plants Detail <br/>
-
-```bash
-https://openapi.programming-hero.com/api/plant/${id}
-```
-
-```bash
-https://openapi.programming-hero.com/api/plant/1
-```
----
-
-
-
-
-## ✅ Main Requirements 
-
-#### 1) Navbar
-
-- Website **logo/name** on the **left**  
-- **Menu items** in the **center** 
-- **Plant a Tree button** on the **right** 
-
-#### 2) Banner 
-- A **background image**  
-- A **title** and **subtitle**  
-- A **centered button**  
-
-#### 3) About Campaign
-- **Section heading**  
-- **Image on the left**, **text on the right**  
-
-#### 4) Our Impact Section 
-- Show **3 cards** with campaign **statistics**  
-
-#### 5) Plant a Tree Today Section & Footer
-- **Form**: Name, Email, Number of Trees  
-- **Footer** with copyright info 
-
-#### 6) Responsiveness 
-- Website must be **mobile responsive**  
+**Answer:**  
+এই তিনটা ভ্যারিয়েবল পার্থক্য হচ্ছে  
+- **var** => var কীওয়ার্ড দিয়ে ভ্যারিয়েবল একই ব্লকে একই নামে একবার ভ্যালু এসাইন্ট করার পর আবার পুনরায় ভ্যালু এসাইন্ট করা যায়। গ্লোবাল স্কোপ var দিয়ে ভ্যারিয়েবল ডিক্লেয়ার করলে যে কোনো জাইগা থেকে অ্যাক্সেস করা যায়। এমনকি নিচে var দিয়ে ডিক্লেয়ার করলে উপরে থেকেও অ্যাক্সেস করা যায়। তবে ভ্যালু দেয় না, undefined দেয়।  
+- **let** => let কীওয়ার্ড দিয়ে একই ব্লকস্কোপে একই নামে ভ্যালু এসাইন্ট করা যায় না তবে ভ্যালু পরিবর্তন করা যায়। ব্লকস্কোপে ডিক্লেয়ার করলে বাইরে থেকে অ্যাক্সেস করা যায় না। আর নিচে ভ্যারিয়েবল ডিক্লেয়ার করলে উপরে থেকে অ্যাক্সেস করা যায় না, এরর দেয়।  
+- **const** => let and const প্রায় একয় রকম। const কীওয়ার্ড দিয়ে একই ব্লকস্কোপে একই নামে ভ্যালু এসাইন্ট করা যায় না আর ভ্যালুও পরিবর্তন করা যায় না। তবে array আর object এর ভ্যারিয়েবল করতে না দিলেও প্রপার্টি পরিবর্তন করতে দেয়। ব্লকস্কোপে ডিক্লেয়ার করলে বাইরে থেকে অ্যাক্সেস করা যায় না। আর নিচে ভ্যারিয়েবল ডিক্লেয়ার করলে উপরে থেকে অ্যাক্সেস করা যায় না, এরর দেয়।  
 
 ---
-#### 7) Create a README file to answer the following question-
 
+### ❓ 2) What is the difference between map(), forEach(), and filter()?
 
-#### 1) What is the difference between var, let, and const?
-
-#### 2) What is the difference between map(), forEach(), and filter()? 
-
-#### 3) What are arrow functions in ES6?
-
-#### 4) How does destructuring assignment work in ES6?
-
-#### 5) Explain template literals in ES6. How are they different from string concatenation?
-
-## ⚙️ Functionalities 
-
-1) Category Loading 
-Load Tree Categories dynamically on the left side.
-
-2) Category Click → Tree Data 
-On clicking a category: load trees of that category.
-
-Display in a 3-column card layout.
-
-3) Card Contents 
- Each card includes:
-
-        - Image
-
-        -  Name
-
-        - Short description
-
-        - Category
-
-        - Price
-
-        - Add to Cart button
-
-4) Modal on Card Click 
-Clicking a tree name on a card opens a modal with full tree details.
-
-
-##  🧪 Challenges 
-
-
-    1) Add to Cart 
-    Clicking Add to Cart: - Adds the tree to Cart List
-                          - Shows tree name 
-
-    2) Total Calculation 
-    Calculate total price of trees in cart.
-
-    3) Remove from Cart 
-    Clicking ❌ removes tree and deducts price from total.
-
-    4) Loading Spinner
-    Show spinner while data is loading.
-
-    5) Active Button State 
-    Highlight active category button when selected.
-
-
-
-🧰 Technology Stack:
-        
-        HTML
-
-        CSS (Vanilla / Tailwind / DaisyUI)
-
-        JavaScript (Vanilla only, no frameworks)
-
-📌 Rules
-✅ At least 5 meaningful commits
-
-❌ No dummy text or Lorem Ipsum — must use relevant content
-
-
-
-
-
-## 🔗 Submission
-- **Live Link :** YOUR_DEPLOYED_URL_HERE  
-- **GitHub Private Repository:** YOUR_REPO_URL_HERE  
+**Answer:**  
+map(), forEach(), and filter() তিনটি Array মেথড।  
+- **map()** হচ্ছে Array এলিমেন্ট এর উপর নির্দিষ্ট কাজ করে এবং রিটার্ন হিসাবে নতুন একটা Array দেয়।  
+- **forEach()** হচ্ছে Array এলিমেন্ট এর উপর নির্দিষ্ট কাজ করে এবং কোন কিছুই রিটার্ন করে না। undefined দেয়।  
+- **filter()** হচ্ছে Array এলিমেন্ট এর উপর শর্ত অনুযায়ী কাজ করে এবং রিটার্ন হিসাবে নতুন একটা Array দেয়।  
 
 ---
+
+### ❓ 3) What are arrow functions in ES6?
+
+**Answer:**  
+Arrow Function হচ্ছে ES6 এ নতুন ফাংশন লেখার নিয়ম যা সাধারণ ফাংশন এর মতই কাজ করে কিন্তু সিনট্যাক্স ছোট। কোডকে ছোট আর ক্লিন করে।  
+
+---
+
+### ❓ 4) How does destructuring assignment work in ES6?
+
+**Answer:**  
+destructuring assignment হচ্ছে array আর object এর ভ্যালু গুলোকে বের করে এবং সেগুলো ভেরিয়েবলে অ্যাসাইন করে।  
+
+---
+
+### ❓ 5) Explain template literals in ES6. How are they different from string concatenation?
+
+**Answer:**  
+template literals ES6 এর স্ট্রিং লেখার নতুন নিয়ম যা মাল্টি লাইন স্ট্রিং এবং ভ্যারিয়েবল এক্সপ্রেসন এক সাথে ব্যবহার করা যায়।
