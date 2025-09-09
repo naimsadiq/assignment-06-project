@@ -1,7 +1,8 @@
-
+// Getting the cart container
 const cartConteinar = document.getElementById('cart-conteiner');
 let price = 0;
 
+// Checking which element was clicked inside the cart container
 cartConteinar.addEventListener('click', (evt) => {
     if(evt.target.localName === 'h3'){
         showModal(evt.target.id)
@@ -11,6 +12,7 @@ cartConteinar.addEventListener('click', (evt) => {
     }
 })
 
+// Function to handle loading spinner
 const manageSpinner = (status) => {
   if (status == true) {
     document.getElementById("spinner").classList.remove("hidden");
@@ -22,7 +24,7 @@ const manageSpinner = (status) => {
 };
 
 
-
+// Removing item from cart
 const addCartList = document.getElementById('add-cart-list');
 addCartList.addEventListener('click', (evt) => {
     if(evt.target.localName === 'i'){
@@ -34,7 +36,7 @@ addCartList.addEventListener('click', (evt) => {
     }
 })
 
-
+// Fetch data from server and add new product to cart
 const addCart = (id) => {
     const addCartUrl = `https://openapi.programming-hero.com/api/plant/${id}`;
     fetch(addCartUrl)
@@ -53,14 +55,16 @@ const addCart = (id) => {
                 </div>
             </div>
         `
+    // Show alert
     alert(`${plants.name} has been added to the cart. `);
+    // Update total price
     const totalPrice = document.getElementById('total-price');
     price += plants.price;
     totalPrice.innerText = price;
 })
 }
 
-
+// Open modal and display product details
 const showModal = (id) => {
     document.getElementById('my_modal_5').showModal();
 const plantsDetailUrl = `https://openapi.programming-hero.com/api/plant/${id}`;
@@ -78,8 +82,11 @@ const plantsDetailUrl = `https://openapi.programming-hero.com/api/plant/${id}`;
         `
 })
 }
+
+// Start spinner
 manageSpinner(true);
-// All Plants Conteinar function 
+
+// API call to load all plants
 const allPlantsUrl = 'https://openapi.programming-hero.com/api/plants';
 fetch(allPlantsUrl)
 .then(response => response.json())
@@ -87,6 +94,7 @@ fetch(allPlantsUrl)
     allPlantsShow(allPlants.plants)
 })
 
+// Function to display all plants in UI
 const allPlantsShow = (allPlants) => {
     allPlants.forEach(plant => {
         cartConteinar.innerHTML += `
@@ -104,9 +112,11 @@ const allPlantsShow = (allPlants) => {
             </div>
         `
     })
+    // Stop spinner
     manageSpinner(false);
 }
-// All categories function 
+
+// API call to load all categories
 const categoriesUrl = 'https://openapi.programming-hero.com/api/categories';
 fetch(categoriesUrl)
 .then(response => response.json())
@@ -114,6 +124,7 @@ fetch(categoriesUrl)
     categoriesShow(data.categories);
 })
 
+// Function to display all categories
 const categoriesShow = (categories) => {
     // console.log(categories);
     const categoryContainer = document.getElementById('categories-conteinar');
@@ -136,6 +147,7 @@ const categoriesShow = (categories) => {
     })
 }
 
+// Function to load plants by category
 const categoryCart = (id) => {
     const categoryCartUrl = `https://openapi.programming-hero.com/api/category/${id}`;
     fetch(categoryCartUrl)
@@ -145,6 +157,7 @@ const categoryCart = (id) => {
     })
 }
 
+// Display plants in UI by category
 const showCategoryCart = (plants) => {
     cartConteinar.innerHTML = '';
     plants.forEach(plant => {
